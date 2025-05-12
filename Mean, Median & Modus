@@ -1,0 +1,21 @@
+# Load dataset
+data <- read.csv(file = 'D:\\Kuliah\\ABO\\Social_Network_Ads.csv') 
+
+# Tampilkan nama kolom
+names(data)
+
+# Misal kita ingin menghitung statistik dari kolom 'Age'
+mean_age <- mean(data$Age, na.rm = TRUE)
+median_age <- median(data$Age, na.rm = TRUE)
+
+# Fungsi untuk menghitung modus (karena R tidak punya fungsi built-in untuk modus)
+modus <- function(x) {
+  uniqx <- unique(x)
+  uniqx[which.max(tabulate(match(x, uniqx)))]
+}
+modus_age <- modus(data$Age)
+
+# Cetak hasil
+cat("Mean Age:", mean_age, "\n")
+cat("Median Age:", median_age, "\n")
+cat("modus Age:", modus_age, "\n")
