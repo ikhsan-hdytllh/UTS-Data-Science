@@ -1,0 +1,17 @@
+# Load dataset
+data <- read.csv(file = 'D:\\Kuliah\\ABO\\Social_Network_Ads.csv') 
+
+# masukan kolom yang ingin dicari contoh adalah 'Age'
+kolom <- data$Age
+
+# Jangkauan (range)
+jangkauan <- max(kolom, na.rm = TRUE) - min(kolom, na.rm = TRUE)
+
+# Kuartil
+kuartil <- quantile(kolom, probs = c(0.25, 0.5, 0.75), na.rm = TRUE)
+
+# Cetak hasil
+cat("Jangkauan (Range):", jangkauan, "\n")
+cat("Kuartil 1 (Q1):", kuartil[1], "\n")
+cat("Kuartil 2 (Median/Q2):", kuartil[2], "\n")
+cat("Kuartil 3 (Q3):", kuartil[3], "\n")
